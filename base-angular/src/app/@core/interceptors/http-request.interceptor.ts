@@ -17,15 +17,19 @@ export class HttpRequestInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this._loading.setLoading(true, request.url);
     return next.handle(request)
-      .pipe(catchError((err) => {
-        this._loading.setLoading(false, request.url);
-        return err;
-      }))
-      .pipe(map((evt: any) => {
-        if (evt instanceof HttpResponse) {
-          this._loading.setLoading(false, request.url);
-        }
-        return evt;
-      }));
+      .pipe(
+				tap<HttpEvent<any>>((httpEvent: HttpEvent<any>) => {
+					if (httpEvent instanceof HttpResponse) {
+						this._cache.put(request, httpEvent);
+					}
+					return cachedResponse ? cachedResponse : httpEvent;
+				}),
+				catchError((err: HttpErrorResponse) => {
+					throw err;
+				}),
+				finalize(() => {
+					this._loading.setLoading(false, request);
+				})
+			);
   }
 }
