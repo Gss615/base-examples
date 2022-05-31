@@ -25,3 +25,5 @@ export class ErrorInterceptor implements HttpInterceptor {
     throw response;
   }
 }
+// https://github.com/keithstric/angular-boilerplate-plain/tree/master/src/app/core/services
+// https://github.com/ngx-rocket/starter-kit/tree/main/src/app
