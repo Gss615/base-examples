@@ -28,7 +28,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 					throw err;
 				}),
 				finalize(() => {
-					this._loading.setLoading(false, request);
+					this._loading.setLoading(false, request.url);
 				})
 			);
   }
