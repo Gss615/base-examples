@@ -10,9 +10,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {SharedModule} from './@shared/shared.module'
 registerLocaleData(en);
-
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +20,8 @@ registerLocaleData(en);
     CoreModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
 
   ],
   providers: [

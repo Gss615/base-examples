@@ -1,29 +1,33 @@
-<section class="wrapper">
-    <p>用户名：<input type="text" [formControl]="favoriteControl"></p>
-    <p>没有绑定：<input type="text"></p>
-    <p>双向绑定：<input type="text" [(ngModel)]="favoriteModel"></p>
-    <button (click)="handleClick()">登陆</button>
-    <p>双向绑定：{{favoriteModel}}</p>
-    <form [formGroup]="formgroups">
-        <label for="first-name">First Name</label>
-        <input id="first-name" type="text" formControlName="firstName">
-        <label for="last-name">Last Name</label>
-        <input id="last-name" type="text" formControlName="lastName" />
-    </form>
-    <button (click)="handleHttp()">请求测试</button>
-    <form [formGroup]="form">
-        <label for="first-name">First Name</label>
-        <input id="first-name" type="text" formControlName="fbFirst">
-        <div formArrayName="aliases">
+<section>
 
-            <h2>Aliases</h2>
-            <button (click)="addAlias()" type="button">+ Add another alias</button>
+  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your username!">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your Password!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <div nz-row class="login-form-margin">
+      <div nz-col [nzSpan]="12">
+        <label nz-checkbox formControlName="remember">
+          <span>Remember me</span>
+        </label>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <a class="login-form-forgot">Forgot password</a>
+      </div>
+    </div>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+    Or
+    <a>register now!</a>
+  </form>
 
-            <div *ngFor="let alias of aliases.controls; let i=index">
-                <!-- The repeated alias template -->
-                <label for="alias-{{ i }}">Alias:</label>
-                <input id="alias-{{ i }}" type="text" [formControlName]="i">
-            </div>
-        </div>
-    </form>
 </section>
