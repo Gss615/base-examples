@@ -31,8 +31,11 @@ export class AuthService {
 		// 		Logger.info('User Logged in', rawUser);
 		// 		this.updateLocalUser(rawUser);
 		// 	}));
-		return this.http.get('login').pipe(tap((res) => {
-			this.updateLocalUser(res)
+		return this.http.get('https://jsonplaceholder.typicode.com/users').pipe(tap((res:any) => {
+			console.log('res',res)
+			const [{email}] = res
+			console.log('email',email)
+			this.updateLocalUser(email)
 		}))
 	}
 	// 退出
