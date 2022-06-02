@@ -18,3 +18,6 @@ https://jsonplaceholder.typicode.com/todos/1
 
 https://github.com/keithstric/angular-boilerplate-plain
 种子项目中，页眉和页脚的实现方式很值得学习！
+
+
+BMW  项目的桌面模式适合结合种子项目实现情景模式
