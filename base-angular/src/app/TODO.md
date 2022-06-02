@@ -21,3 +21,9 @@ https://github.com/keithstric/angular-boilerplate-plain
 
 
 BMW  项目的桌面模式适合结合种子项目实现情景模式
+
+
+
+问题：
+
+import 引入的 forRoot方法和依赖注入有什么关系？如何使用？

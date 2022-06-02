@@ -11,6 +11,9 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module'
+import { TranslateModule } from '@ngx-translate/core';
+import {I18nModule} from'./i18n/i18n.module'
+
 registerLocaleData(en);
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ registerLocaleData(en);
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    TranslateModule.forRoot(),
+    I18nModule
 
   ],
   providers: [

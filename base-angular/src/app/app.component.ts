@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { slideInAnimation } from './animations';
-
+import { I18nService } from './i18n/i18n.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,9 +9,16 @@ import { slideInAnimation } from './animations';
 
 })
 export class AppComponent {
+  constructor(
+    private  i18nService:I18nService
+  ){}
   title = 'base-angular';
   getAnimationData(outlet: any) {
     return outlet?.activatedRouteData?.['animation'];
+  }
+  ngOnInit(){
+    this.i18nService.init('en-US', ['en-US', 'fr-FR']);
+
   }
 }
 // 使用示例

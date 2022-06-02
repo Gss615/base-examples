@@ -9,7 +9,7 @@ import { AuthService } from '../core/services/auth.service';
 export class PagesComponent implements OnInit {
 
   constructor(private auth:AuthService) { }
-
+  currentLanguage=''
   ngOnInit(): void {
   }
   logout(){

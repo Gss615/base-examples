@@ -3,6 +3,12 @@
         <nz-avatar [nzSize]="64" nzIcon="user"></nz-avatar>
         <a (click)="logout()" nz-button nzType="link">退出</a>
     </nz-header>
-    <nz-content>Content</nz-content>
+    <nz-content>
+        <app-language-selector></app-language-selector>
+    <ul>
+        <li><span translate>Home</span></li>
+        <li>{{ currentLanguage | translate }}</li>
+    </ul>
+    </nz-content>
     <nz-footer>Footer</nz-footer>
 </nz-layout>

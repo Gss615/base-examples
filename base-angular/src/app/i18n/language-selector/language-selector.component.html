@@ -1,0 +1,5 @@
+
+<h1>{{currentLanguage | translate}}</h1>
+<button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
+    {{language | translate}}
+</button>
