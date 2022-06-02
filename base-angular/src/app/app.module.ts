@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CoreModule } from './core/core.module';
+import { CoreModule } from '@core';
+// import { Logger } from '@shared';
+import { PagesModule } from './pages/pages.module'
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,9 +12,12 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {SharedModule} from './shared/shared.module'
+import { SharedModule } from './shared/shared.module'
 import { TranslateModule } from '@ngx-translate/core';
-import {I18nModule} from'./i18n/i18n.module'
+import { I18nModule } from './i18n/i18n.module'
+import { BrowserModule } from '@angular/platform-browser'
+import { AppRoutingModule } from './app-routing.module'
+
 
 registerLocaleData(en);
 @NgModule({
@@ -20,14 +25,16 @@ registerLocaleData(en);
     AppComponent
   ],
   imports: [
+    BrowserModule,
     CoreModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     SharedModule,
     TranslateModule.forRoot(),
-    I18nModule
-
+    I18nModule,
+    PagesModule,
+    AppRoutingModule
   ],
   providers: [
     httpInterceptorProviders,
