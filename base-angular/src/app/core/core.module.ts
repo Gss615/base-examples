@@ -1,5 +1,9 @@
 import { NgModule, SkipSelf, Optional } from '@angular/core'
+import zh from "@angular/common/locales/zh";
+import {NZ_I18N, zh_CN} from "ng-zorro-antd/i18n";
+import {DOCUMENT, registerLocaleData} from '@angular/common';
 
+registerLocaleData(zh);
 
 @NgModule({
     declarations: [],
@@ -7,7 +11,10 @@ import { NgModule, SkipSelf, Optional } from '@angular/core'
         
     ],
     exports: [
-    ]
+    ],
+    providers: [
+        {provide: NZ_I18N, useValue: zh_CN}
+      ],
 })
 
 export class CoreModule {

@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
-      this.auth.login(this.validateForm.value).subscribe(res=>{
+      this.auth.login().subscribe(res=>{
         console.log('订阅',res)
         this.router.navigateByUrl('/page')
       })
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder,private http:HttpClient,private auth:AuthService,private router:Router) {
+  constructor(private fb: FormBuilder,private auth:AuthService,private router:Router) {
 
   }
 

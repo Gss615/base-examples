@@ -12,29 +12,27 @@ export class AuthService {
 	constructor(private http: HttpClient) { }
 	/**
 	 *  是否登录
-	 * @returns {boolean}
 	 */
 	isAuthenticated() {
 		return !!LocalStorageService.getItem(LocalStorageTypes.SESSION, 'user');
 	}
 	/**
 	 * 获取当前用户
-	 * @returns {User}
 	 */
 	getUser() {
 		// return User.deserialize(LocalStorageService.getItem(LocalStorageTypes.SESSION, 'user'));
 	}
 	// 登录
-	login(loginData: any) {
+	login() {
 		// return this._http.doRequest(ApiEndpoints.LOGIN, ApiMethod.POST, loginData)
 		// 	.pipe(tap((rawUser: User) => {
 		// 		Logger.info('User Logged in', rawUser);
 		// 		this.updateLocalUser(rawUser);
 		// 	}));
-		return this.http.get('https://jsonplaceholder.typicode.com/users').pipe(tap((res:any) => {
-			console.log('res',res)
-			const [{email}] = res
-			console.log('email',email)
+		return this.http.get('https://jsonplaceholder.typicode.com/users').pipe(tap((res: any) => {
+			console.log('res', res)
+			const [{ email }] = res
+			console.log('email', email)
 			this.updateLocalUser(email)
 		}))
 	}
