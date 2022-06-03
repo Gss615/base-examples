@@ -6,6 +6,8 @@ import zh from "@angular/common/locales/zh";
 import { NZ_I18N, zh_CN } from "ng-zorro-antd/i18n";
 import { registerLocaleData } from '@angular/common';
 
+import { httpInterceptorProviders } from './interceptors'
+
 registerLocaleData(zh);
 
 @NgModule({
@@ -13,7 +15,8 @@ registerLocaleData(zh);
         HttpClientModule
     ],
     providers: [
-        { provide: NZ_I18N, useValue: zh_CN }
+        { provide: NZ_I18N, useValue: zh_CN },
+        httpInterceptorProviders
     ],
 })
 

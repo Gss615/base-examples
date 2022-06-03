@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from '@core';
 
 import { AppComponent } from './app.component';
-import { httpInterceptorProviders } from './core/interceptors';
+// import { httpInterceptorProviders } from './core/interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module'
 import { TranslateModule } from '@ngx-translate/core';
@@ -27,7 +27,7 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule
   ],
   providers: [
-    httpInterceptorProviders,
+    // httpInterceptorProviders,
   ],
   bootstrap: [AppComponent]
 })
