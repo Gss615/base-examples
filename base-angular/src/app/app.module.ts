@@ -10,7 +10,6 @@ import { I18nModule } from './i18n/i18n.module'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { PagesModule } from './pages/pages.module';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     TranslateModule.forRoot(),
     I18nModule,
     PagesModule,
-    HttpClientModule,
     AppRoutingModule
   ],
   providers: [

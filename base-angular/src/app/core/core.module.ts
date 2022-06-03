@@ -1,20 +1,20 @@
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { NgModule, SkipSelf, Optional } from '@angular/core'
 import zh from "@angular/common/locales/zh";
-import {NZ_I18N, zh_CN} from "ng-zorro-antd/i18n";
-import {DOCUMENT, registerLocaleData} from '@angular/common';
+import { NZ_I18N, zh_CN } from "ng-zorro-antd/i18n";
+import { registerLocaleData } from '@angular/common';
 
 registerLocaleData(zh);
 
 @NgModule({
-    declarations: [],
     imports: [
-        
-    ],
-    exports: [
+        HttpClientModule
     ],
     providers: [
-        {provide: NZ_I18N, useValue: zh_CN}
-      ],
+        { provide: NZ_I18N, useValue: zh_CN }
+    ],
 })
 
 export class CoreModule {
