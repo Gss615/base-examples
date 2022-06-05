@@ -27,8 +27,15 @@ export class LoginComponent implements OnInit {
       });
     }
   }
+  handlleApi(){
+    this.http.get('http://localhost:3000/api/login').subscribe(res=>{
+      console.log('res',res)
+    },error=>{
+      console.log("error",error)
+    })
+  }
 
-  constructor(private fb: FormBuilder,private auth:AuthService,private router:Router) {
+  constructor(private fb: FormBuilder,private auth:AuthService,private router:Router,private http:HttpClient) {
 
   }
 

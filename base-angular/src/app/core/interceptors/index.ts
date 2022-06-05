@@ -34,14 +34,15 @@
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
-import { CommonInterceptor } from './common.interceptor';
 import { CustomHeaderInterceptor } from './custom-header.interceptor'
+import { AuthInterceptor } from './auth.interceptor';
 
 /** 顺序。。。 */
 export const httpInterceptorProviders = [
     { provide: HTTP_INTERCEPTORS, useClass: CustomHeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
 ];
 
 

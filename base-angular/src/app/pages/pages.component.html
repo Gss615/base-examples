@@ -5,10 +5,13 @@
     </nz-header>
     <nz-content>
         <app-language-selector></app-language-selector>
+        <button (click)="handlleApi()">123</button>
+
     <ul>
         <li><span translate>Home</span></li>
         <li>{{ currentLanguage | translate }}</li>
     </ul>
     </nz-content>
     <nz-footer>Footer</nz-footer>
+
 </nz-layout>

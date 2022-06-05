@@ -9,7 +9,21 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 	authData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient,) {
+		// TODO 判断本地是否有 token
+		if (this.isAuthenticated()) {
+			this.authData.next('token')
+		}
+
+	}
+
+	get token(){
+		return this.authData.value
+	}
+
+	getToken(){
+		return this.authData
+	}
 	/**
 	 *  是否登录
 	 */

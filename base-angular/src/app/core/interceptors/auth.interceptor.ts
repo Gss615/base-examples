@@ -33,7 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return this.refreshTokenSubject.pipe(
               filter((res) => res !== null),
               take(1),
-              switchMap(() => next.handle(this.addAuthenticationToken(request)))
+              switchMap(() => next.handle(this.addAuthenticationToken(request)))  // 存在疑问？如果已经发生请求并且401了，那么这个next.handle有什么作用？
             )
           } else {
             this.refreshTokenInProgress = true
@@ -47,7 +47,7 @@ export class AuthInterceptor implements HttpInterceptor {
             )
           }
         }else{
-          return throwError(error);
+          return throwError(()=>error);
         }
       })
     )
